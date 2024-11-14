@@ -1,0 +1,41 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java8
+    container_name: mceternal
+    restart: always
+    stdin_open: true
+    tty: true
+    environment:
+      EULA: "TRUE"
+      CONSOLE: "false"
+      ENABLE_RCON: "true"
+      ENABLE_QUERY: "false"
+      MAX_PLAYERS: "12"
+      DIFFICULTY: "normal"
+      SNOOPER_ENABLED: "false"
+      VIEW_DISTANCE: "12"
+      MODE: "survival"
+      MOTD: "Da Frens MC Eternal Server"
+      PVP: "true"
+      FORGEVERSION: "14.23.5.2854"
+      VERSION: "1.12.2"
+      TYPE: "FORGE"
+      MEMORY: "12G"
+      OPS: "BrokeYourCankles,LukeWarmDog"
+      WHITELIST: |
+        BrokeYourCankles
+        LukeWarmDog
+        roscoe_boscoe
+    volumes:
+      - "mceternaldata:/data"
+    ports:
+      - "25565:25565"
+
+volumes:
+  mceternaldata:
+    name: "mceternaldata"
+    external: true
+
+networks:
+  default:
+    name: mceternal

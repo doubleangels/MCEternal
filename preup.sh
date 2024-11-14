@@ -1,0 +1,1 @@
+docker run -it --rm -v mceternaldata:/volume debian:latest /bin/bash -c 'apt update && apt install wget unzip -y && cd volume && wget "https://mediafilez.forgecdn.net/files/3467/826/MC-Eternal-Lite-1.3.8.1-SERVER.zip" -O server.zip && unzip server.zip -d server && cp -r ./server/* ./ && rm -rf server.zip server'
